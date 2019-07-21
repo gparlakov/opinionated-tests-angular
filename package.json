@@ -1,0 +1,25 @@
+{
+  "name": "opinionated-tests-angular",
+  "version": "1.0.0",
+  "description": "Demos",
+  "main": "none",
+  "scripts": {
+    "jest-schematic": "cd demo-jest && ng add @briebug/jest-schematic"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gparlakov/opinionated-tests-angular.git"
+  },
+  "keywords": [
+    "demo",
+    "angular",
+    "testing",
+    "unit-test"
+  ],
+  "author": "Georgi Parlakov gparlakov@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gparlakov/opinionated-tests-angular/issues"
+  },
+  "homepage": "https://github.com/gparlakov/opinionated-tests-angular#readme"
+}
