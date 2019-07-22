@@ -5,10 +5,10 @@ import { take } from 'rxjs/operators';
 describe('ArticleCommentComponent', () => {
   it('when deleteClicked is called it should', () => {
     // arrange
-    const { build } = setup().default();
+    const { build } = setup();
     const c = build();
     let called = false;
-    c.deleteComment.pipe(take(1)).subscribe(() => called = true);
+    c.deleteComment.pipe(take(1)).subscribe(() => (called = true));
     // act
     c.deleteClicked();
     // assert
@@ -17,12 +17,12 @@ describe('ArticleCommentComponent', () => {
 });
 
 function setup() {
-  const userService = jasmine.createSpyObj<UserService>('UserService', {});
+  const userService = jasmine.createSpyObj<UserService>(
+    'UserService',
+    Object.keys(UserService.prototype)
+  );
   const builder = {
     userService,
-    default() {
-      return builder;
-    },
     build() {
       return new ArticleCommentComponent(userService);
     }
