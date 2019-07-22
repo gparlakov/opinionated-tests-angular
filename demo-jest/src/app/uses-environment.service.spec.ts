@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { UsesEnvironmentService } from './uses-environment.service';
+import {} from 'jest';
 
-jest.mock('../environment/environment.ts', () => {
+jest.mock('../environments/environment.ts', () => {
   return {
     environment: {
       production: true
