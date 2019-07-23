@@ -31,6 +31,7 @@ export class ArticleComponent implements OnInit {
     private commentsService: CommentsService,
     private router: Router,
     private userService: UserService,
+    private dep: Object
   ) { }
 
   ngOnInit() {
