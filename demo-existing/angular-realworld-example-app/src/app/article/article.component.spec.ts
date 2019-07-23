@@ -1,17 +1,25 @@
 import { ArticleComponent } from './article.component';
 import { ActivatedRoute, Router, Data } from '@angular/router';
-import { ArticlesService, CommentsService, UserService, User, Article } from '../core';
+import {
+  ArticlesService,
+  CommentsService,
+  UserService,
+  User,
+  Article
+} from '../core';
 import { of } from 'rxjs';
 
 describe('ArticleComponent', () => {
   it('when ngOnInit is called and route data emits it should set the article', () => {
     // arrange
-    const { build } = setup().default().withRouteData({slug: 'mememe'});
+    const { build } = setup()
+      .default()
+      .withRouteData({ slug: 'mememe' });
     const c = build();
     // act
     c.ngOnInit();
     // assert
-    expect<any>(c.article).toEqual({slug: 'mememe'});
+    expect<any>(c.article).toEqual({ slug: 'mememe' });
   });
 });
 
@@ -30,10 +38,11 @@ function setup() {
     default() {
       route.data = of({} as Data);
       userService.currentUser = of({} as User);
+      userService.getCurrentUser.and.returnValue({} as User);
       return builder;
     },
     withRouteData(article: Partial<Article>) {
-      route.data = of({article});
+      route.data = of({ article });
       return builder;
     },
     build() {
@@ -49,7 +58,11 @@ function setup() {
 
   return builder;
 }
-type SpyOf<T> = T | T & Partial<{ [k in keyof T]: jasmine.Spy }>;
+
+type SpyOf<T> = Partial<
+  { [k in keyof T]: T[k] extends (...args: any[]) => any ? jasmine.Spy : T[k] }
+> &
+  T;
 
 function autoSpy<T>(obj: new (...args: any[]) => T): SpyOf<T> {
   const res: SpyOf<T> = {} as any;
