@@ -26,6 +26,7 @@ export class ArticleCommentComponent implements OnInit, OnDestroy {
         this.canModify = (userData.username === this.comment.author.username);
       }
     );
+    this.userService.populate();
   }
 
   ngOnDestroy() {
