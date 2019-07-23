@@ -1,0 +1,3 @@
+{
+    "typescript.tsdk": "./demo-existing/angular-realworld-example-app/node_modules/typescript/lib"
+}
