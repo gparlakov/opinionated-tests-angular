@@ -1,0 +1,20 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+variables:
+  version: node --pe "require('./package.json').version"
+
+steps:
+- script: echo "##vso[task.setvariable variable=PACKAGE_VERSION]$(version)"
+  displayName: 'Define a variable'
+
+steps:
+- script: echo "##vso[task.setvariable variable=PACKAGE_VERSION_1]1"
+  displayName: 'Define a variable'
