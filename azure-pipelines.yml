@@ -22,3 +22,6 @@ steps:
 - script: echo $PACKAGE_VERSION_1 
   displayName: 'package version 1'
 
+
+- script: echo "##vso[build.addbuildtag]release" 
+  displayName: 'package version 1'
