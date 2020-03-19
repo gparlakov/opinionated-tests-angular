@@ -23,5 +23,5 @@ steps:
   displayName: 'package version 1'
 
 
-- script: echo "##vso[build.addbuildtag]release" 
+- script: echo "##vso[build.addbuildtag]notrelease" 
   displayName: 'package version 1'
