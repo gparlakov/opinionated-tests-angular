@@ -3,7 +3,7 @@ import { UserService } from '../core';
 import { take } from 'rxjs/operators';
 
 describe('ArticleCommentComponent', () => {
-  it('when deleteClicked is called it should', () => {
+  it('when deleteClicked is called it should delegate to delete comment service', () => {
     // arrange
     const { build } = setup();
     const c = build();
